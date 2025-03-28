@@ -1,0 +1,283 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+<meta content="application/xhtml+xml;charset=UTF-8" http-equiv="Content-Type">
+<meta content="telephone=no, address=no" name="format-detection">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>杭州天目山医院</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<link rel="stylesheet" type="text/css" href="/js/main.css"  />
+<link rel="stylesheet" type="text/css" href="/js/mobiscroll_min.css" />
+<link href="/js/css/layui.css" rel="stylesheet">
+<script type="text/javascript" src="/js/zepto_min.js"></script>
+<script type="text/javascript" src="/js/mobiscroll_min.js"></script>
+<script type="text/javascript" src="/js/alert.js"></script>
+<script type="text/javascript" src="/js/swipe.js"></script>
+<script type="text/javascript" src="/js/initSwipe.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+<!-- 注意：项目正式环境请勿引用该地址 -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/layui/2.9.21/layui..js"></script> -->
+<script src="/js/layui.js"></script>
+</head>
+<style>
+li p{font-size:20px;font-weight:bold;}
+.zjpic li p{font-size:20px;font-weight:bold;}
+.zj{display:block!important;}
+#zj li{display:none;}
+.r_tips {
+    color: #ff0000;
+    margin-left: 5px;
+}
+.error input, .error select, .error textarea,
+input.error, select.error, textarea.error {
+    border: 1px solid #ff0000 !important;
+    background-color: #fff2f2 !important;
+}
+</style>
+<body onselectstart="return true;" ondragstart="return false;">
+<div class="container gray_bg">
+  <div class="banner"> </div>
+  <div class="explain">
+    <h3>杭州天目山医院预约平台在线挂号</h3>
+    <!--<p style="padding:0px 0;"> <img src="http://wap.0571gb.com/images/wuyizuozhen.jpg"/></p>-->
+    <article> <img src="http://wap.0571gb.com/images/yylogo.png" width="20" height="20" /> 杭州天目山医院骨科 </article>
+  </div>
+  <div class="box">
+    <ul class="box_list" id="addressBox">
+      <li >
+        <div><i class="ico_address"></i></div>
+        <div><a style="color: #74b0ee;" href="https://map.baidu.com/poi/%E6%9D%AD%E5%B7%9E%E5%A4%A9%E7%9B%AE%E5%B1%B1%E5%8C%BB%E9%99%A2-%E9%AA%A8%E7%A7%91/@13370687,3516642,19z?uid=7ceaa0598ea4c177d42ce22d&ugc_type=3&ugc_ver=1&device_ratio=2&compat=1&pcevaname=pc4.1&querytype=detailConInfo&da_src=shareurl" target="_blank">点我导航到杭州天目山医院骨科</a></div>
+        <div><i class="ico_arrow"></i></div>
+      </li>
+      </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="/js/yyzj2.js"></script>
+  <div class="box apply_box" id="applyBox">
+  
+
+<!-- 修改 form 标签，移除 action -->
+<form method="post" target="_self" name="mainform" id="mainform" onsubmit="return validateForm()">
+    <dl class="pb15">
+      <dt>预约专家<span class="r_tips">*</span></dt>
+      <dd>
+        <select id="index_sage" name="sage" class="download txt" style="width: 100%;height: 40px;border: 1px solid #dadbda;border-radius: 2px;background-color: #f6f6f6;padding: 0 10px;">
+          <option value="聂斌">聂斌</option>
+          <option value="刘昭">刘昭</option>
+          <option value="王昌兴">王昌兴</option>
+          <option value="汤志刚">汤志刚</option>
+          <option value="姜滔">姜滔</option>
+
+
+        </select>
+      </dd>
+      <dt>联系人<span class="r_tips">*</span></dt>
+      <dd>
+        <input name="sname" class="txt required" id="sname" value="" placeholder="请输入您的名字" type="text">
+      </dd>
+      <dt>联系电话<span class="r_tips">*</span></dt>
+      <dd>
+        <input name="stel" class="txt required" id="stel" value="" placeholder="请输入您的电话" type="text" data-role="tel">
+      </dd>
+      <dt>预约日期<span class="r_tips">*</span></dt>
+      <dd>
+        <input type="text" id="updatetime" class="stime txt" name="stime" placeholder="请输入预约日期"/>
+      </dd>
+      <dt>性别<span class="r_tips">*</span></dt>
+      <dd>
+        <select name="ssex" class="download txt">
+          <option value="男" selected="selected">男</option>
+          <option value="女">女</option>
+        </select>
+      </dd>
+      <dt>预约留言</dt>
+      <dd>
+        <textarea name="sb" class="txt" style="height:99px;overflow-y:visible" id="info" placeholder="请输入预约留言"></textarea>
+      </dd>
+    </dl>
+    </div>
+    <footer class="sub_wrap">
+    <input type="submit" class="btn mt20" id="subBtn" value="提交预约">
+  </form>
+  <div class="copyright">&copy;杭州天目山医院骨科 2025</div>
+  </footer>
+</div>
+<!-- 
+<script type="text/javascript">
+       
+             $(function(){
+				$('#index_sage').change(function(e){
+					var opts = $('#index_sage').val();
+					var lit = $('#zj>li');
+					for(var i = 0;i<=lit.length;i++){
+					$(lit[i]).removeClass('zj');
+						if(opts.indexOf("杨国庆") != -1){
+							$(lit[i]).removeClass('zj');
+							$(lit[0]).addClass('zj');
+						} if(opts.indexOf("潘桂衡") != -1){
+							$(lit[i]).removeClass('zj');
+							$(lit[1]).addClass('zj');
+						} if(opts.indexOf("刘绍安") != -1){
+							$(lit[i]).removeClass('zj');
+							$(lit[2]).addClass('zj');
+						} if(opts.indexOf("卢积良") != -1){
+							$(lit[i]).removeClass('zj');
+							$(lit[3]).addClass('zj');
+						} if(opts.indexOf("黄美先") != -1){
+							$(lit[i]).removeClass('zj');
+							$(lit[4]).addClass('zj');
+						} if(opts.indexOf("郑毅") != -1){
+							$(lit[i]).removeClass('zj');
+							$(lit[5]).addClass('zj');
+						} if(opts.indexOf("薛来英") != -1){
+							$(lit[i]).removeClass('zj');
+							$(lit[6]).addClass('zj');
+						} if(opts.indexOf("吕铁锋") != -1){
+							$(lit[i]).removeClass('zj');
+							$(lit[7]).addClass('zj');
+						}
+					}	
+				})	 
+			})
+    </script> -->
+
+<script>
+function PanShow(objname,classname,curid,maxid)
+{
+	for(var i=1;i<=maxid;i++)
+	{
+		var obj=document.getElementById(objname+i);
+		obj.style.display="none";
+		var objtitle=document.getElementById(objname+"T"+i);
+		objtitle.className=classname+"_off";
+	}
+	var obj=document.getElementById(objname+curid);
+	obj.style.display="";
+	var objtitle=document.getElementById(objname+"T"+curid);
+	objtitle.className=classname+"_on";
+}
+</script>
+<script>
+layui.use('laydate', function(){
+    var laydate = layui.laydate;
+
+    //日期时间选择器
+    laydate.render({
+        elem: '#updatetime'
+        ,type: 'datetime'
+        ,value: new Date()
+    });
+});
+</script>
+
+
+
+<script type="text/javascript">
+function jumpurl(url){
+    window.location.href = url;
+}
+</script> 
+<script>
+document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+    WeixinJSBridge.call('showOptionMenu');
+});
+</script> 
+<script>
+function phoneTell(number){var ua = navigator.userAgent.toLowerCase();if((/iphone/).test(ua) || (/ipad/).test(ua)){window.open('tel://'+number);}else{window.open('wtai://wp/mc;'+number);}return false; }
+</script>
+<!-- 修改验证脚本，添加 Ajax 提交 -->
+<script type="text/javascript">
+function validateForm() {
+    var isValid = true;
+    // 获取必填字段
+    var doctor = document.getElementById('index_sage');
+    var name = document.getElementById('sname');
+    var phone = document.getElementById('stel');
+    var time = document.getElementById('updatetime');
+    
+    // 清除所有错误样式
+    [doctor, name, phone, time].forEach(function(elem) {
+        elem.classList.remove('error');
+    });
+    
+    // 验证必填项
+    if (!doctor.value.trim()) {
+        doctor.classList.add('error');
+        isValid = false;
+    }
+    if (!name.value.trim()) {
+        name.classList.add('error');
+        isValid = false;
+    }
+    if (!phone.value.trim()) {
+        phone.classList.add('error');
+        isValid = false;
+    }
+    if (!time.value.trim()) {
+        time.classList.add('error');
+        isValid = false;
+    }
+    
+    // 更新手机号验证规则
+    var phoneReg = /^1(3\d|4[5-9]|5[0-35-9]|6[2567]|7[0-8]|8\d|9[0-35-9])\d{8}$/;
+    if (!phoneReg.test(phone.value)) {
+        phone.classList.add('error');
+        isValid = false;
+    }
+    
+    if (isValid) {
+        // 构建 JSON 数据
+        var formData = {
+            sage: doctor.value.trim(),
+            sname: name.value.trim(),
+            stel: phone.value.trim(),
+            stime: time.value.trim(),
+            ssex: document.querySelector('select[name="ssex"]').value,
+            sb: document.getElementById('info').value.trim()
+        };
+
+        // 使用 layui 的 layer 模块进行交互
+        layui.use(['layer'], function(){
+            var layer = layui.layer;
+            
+            $.ajax({
+                url: '/yuyue.php',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.code === 0) {
+                        layer.msg('预约提交成功', {icon: 1});
+                        
+                    } else {
+                        layer.msg(response.msg || '提交失败，请稍后重试', {icon: 2});
+                    }
+                    setTimeout(function() {
+                            window.location.reload();
+                        }, 1000);
+                },
+                error: function() {
+                    layer.msg('网络错误，请稍后重试', {icon: 2});
+                }
+            });
+        });
+    }
+    
+    return false; // 阻止表单默认提交
+}
+
+// 添加输入时移除错误样式
+document.querySelectorAll('.txt').forEach(function(elem) {
+    elem.addEventListener('input', function() {
+        this.classList.remove('error');
+    });
+});
+</script>
+</body>
+</html>
