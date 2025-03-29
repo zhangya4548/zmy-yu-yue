@@ -52,14 +52,14 @@ input.error, select.error, textarea.error {
       <li >
         <div><i class="ico_address"></i></div>
         <div><a style="color: #74b0ee;" href="https://map.baidu.com/poi/%E6%9D%AD%E5%B7%9E%E5%A4%A9%E7%9B%AE%E5%B1%B1%E5%8C%BB%E9%99%A2-%E9%AA%A8%E7%A7%91/@13370687,3516642,19z?uid=7ceaa0598ea4c177d42ce22d&ugc_type=3&ugc_ver=1&device_ratio=2&compat=1&pcevaname=pc4.1&querytype=detailConInfo&da_src=shareurl" target="_blank">点我导航到杭州天目山医院骨科</a></div>
-        <div><i class="ico_arrow"></i></div>
+        <div><a style="color: #74b0ee;" href="https://map.baidu.com/poi/%E6%9D%AD%E5%B7%9E%E5%A4%A9%E7%9B%AE%E5%B1%B1%E5%8C%BB%E9%99%A2-%E9%AA%A8%E7%A7%91/@13370687,3516642,19z?uid=7ceaa0598ea4c177d42ce22d&ugc_type=3&ugc_ver=1&device_ratio=2&compat=1&pcevaname=pc4.1&querytype=detailConInfo&da_src=shareurl" target="_blank"><i class="ico_arrow"></i></a></div>
       </li>
       </li>
     </ul>
   </div>
   <script type="text/javascript" src="/js/yyzj2.js"></script>
   <div class="box apply_box" id="applyBox">
-  
+
 
 <!-- 修改 form 标签，移除 action -->
 <form method="post" target="_self" name="mainform" id="mainform" onsubmit="return validateForm()">
@@ -67,11 +67,11 @@ input.error, select.error, textarea.error {
       <dt>预约专家<span class="r_tips">*</span></dt>
       <dd>
         <select id="index_sage" name="sage" class="download txt" style="width: 100%;height: 40px;border: 1px solid #dadbda;border-radius: 2px;background-color: #f6f6f6;padding: 0 10px;">
+          <option value="汤志刚">汤志刚</option>
+          <option value="王昌兴">王昌兴</option>
+          <option value="姜滔">姜滔</option>
           <option value="聂斌">聂斌</option>
           <option value="刘昭">刘昭</option>
-          <option value="王昌兴">王昌兴</option>
-          <option value="汤志刚">汤志刚</option>
-          <option value="姜滔">姜滔</option>
 
 
         </select>
@@ -107,9 +107,9 @@ input.error, select.error, textarea.error {
   <div class="copyright">&copy;杭州天目山医院骨科 2025</div>
   </footer>
 </div>
-<!-- 
+<!--
 <script type="text/javascript">
-       
+
              $(function(){
 				$('#index_sage').change(function(e){
 					var opts = $('#index_sage').val();
@@ -141,8 +141,8 @@ input.error, select.error, textarea.error {
 							$(lit[i]).removeClass('zj');
 							$(lit[7]).addClass('zj');
 						}
-					}	
-				})	 
+					}
+				})
 			})
     </script> -->
 
@@ -181,12 +181,12 @@ layui.use('laydate', function(){
 function jumpurl(url){
     window.location.href = url;
 }
-</script> 
+</script>
 <script>
 document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
     WeixinJSBridge.call('showOptionMenu');
 });
-</script> 
+</script>
 <script>
 function phoneTell(number){var ua = navigator.userAgent.toLowerCase();if((/iphone/).test(ua) || (/ipad/).test(ua)){window.open('tel://'+number);}else{window.open('wtai://wp/mc;'+number);}return false; }
 </script>
@@ -199,12 +199,12 @@ function validateForm() {
     var name = document.getElementById('sname');
     var phone = document.getElementById('stel');
     var time = document.getElementById('updatetime');
-    
+
     // 清除所有错误样式
     [doctor, name, phone, time].forEach(function(elem) {
         elem.classList.remove('error');
     });
-    
+
     // 验证必填项
     if (!doctor.value.trim()) {
         doctor.classList.add('error');
@@ -222,14 +222,14 @@ function validateForm() {
         time.classList.add('error');
         isValid = false;
     }
-    
+
     // 更新手机号验证规则
     var phoneReg = /^1(3\d|4[5-9]|5[0-35-9]|6[2567]|7[0-8]|8\d|9[0-35-9])\d{8}$/;
     if (!phoneReg.test(phone.value)) {
         phone.classList.add('error');
         isValid = false;
     }
-    
+
     if (isValid) {
         // 构建 JSON 数据
         var formData = {
@@ -244,7 +244,7 @@ function validateForm() {
         // 使用 layui 的 layer 模块进行交互
         layui.use(['layer'], function(){
             var layer = layui.layer;
-            
+
             $.ajax({
                 url: '/yuyue.php',
                 type: 'POST',
@@ -254,7 +254,7 @@ function validateForm() {
                 success: function(response) {
                     if (response.code === 0) {
                         layer.msg('预约提交成功', {icon: 1});
-                        
+
                     } else {
                         layer.msg(response.msg || '提交失败，请稍后重试', {icon: 2});
                     }
@@ -268,7 +268,7 @@ function validateForm() {
             });
         });
     }
-    
+
     return false; // 阻止表单默认提交
 }
 
